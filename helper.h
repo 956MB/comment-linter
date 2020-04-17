@@ -67,10 +67,9 @@ struct groups get_groups(char filename[]) {
     }
 }
 
-void append_spaces(char subj[], int pos, int longest) {
-    // TODO: Fix bug inserting garbage into updated line. think its something to do with the allocated space in buf
-    int spaces = longest-pos;
-    char insert[spaces];
+void insert_spaces(char subj[], int pos, int spaces) {
+    char insert[spaces+1];
+    memset(insert, 0, spaces+1);
     for (int i=0; i<spaces; i++) {
         insert[i] = ' ';
     }

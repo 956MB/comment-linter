@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     char *c;
     char sub[200];
     char linecpy[200];
-    int comments = 0, linenum = 1;
+    int comments = 0, linenum = 1, counter = 0;
     size_t len = 0;
     ssize_t read;
 
@@ -19,8 +19,6 @@ int main(int argc, char *argv[]) {
     strncpy(filename, argv[1], 64);
     strcat(outname, filename);
     struct groups group_indexes = get_groups(filename);
-    // int group_count = sizeof(group_indexes.groups)/sizeof(group_indexes.far[0])+1;
-    int counter = 0;
     int skip;
 
     fpOut = fopen(outname, "w");
@@ -35,11 +33,12 @@ int main(int argc, char *argv[]) {
                 if (line[next] == '/') {
                     memcpy(sub, line, index);
                     if (not_blank(sub, index)) {
-                        int dif = group_indexes.far[counter] - index;
-                        append_spaces(linecpy, index, index+dif);
+                        int spaces = group_indexes.far[counter] - index;
+                        if (spaces > 0) {
+                            insert_spaces(linecpy, index, spaces);
+                        }
                         fputs(linecpy, fpOut);
                         skip = 1;
-                        // printf("Index of comment: %d on line %d, Before comment: \"%s\"\n", index, linenum, sub);
                     }
                 }
             }
