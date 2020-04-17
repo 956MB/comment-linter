@@ -6,7 +6,7 @@ _Yes, I'm sure something like this already exists, and is written in a much bett
 
 ### How:
 
-Commments in a file are first grouped. Groups are made up of comments that are within 1 line space of each other. Next, out of these groups, the furthest to the right comment is picked, as to line up the rest of the comments in a group with it.
+Comments in a file are first grouped. Groups are made up of comments that are within 1 line space of each other. Next, out of these groups, the furthest to the right comment is picked, as to line up the rest of the comments in a group with it.
 
 "top level" comments are when there is nothing but blank spaces before the comment, and these are not counted into groups, and are kept where they are. An example of this could be a comment saying what the function below it does, or a chunk of code that was commmented out. That way the chunks indentation will not be messed up, because all that will be in front of it is blank spaces.
 
