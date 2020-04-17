@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     strncpy(filename, argv[1], 64);
     strcat(outname, filename);
     struct groups group_indexes = get_groups(filename);
-    int skip;
+    int skip, ret;
 
     fpOut = fopen(outname, "w");
     
@@ -54,6 +54,9 @@ int main(int argc, char *argv[]) {
         }
         fclose(fp);
         fclose(fpOut);
+        if ((ret = rename(outname, filename)) != 0) {
+            printf("err: unable to rename the file\n");
+        }
     } else {
         exit(1);
     }
