@@ -4,32 +4,15 @@ struct groups {
     int far[100];
 };
 
-void substring(char s[], char sub[], int p, int l) {
-    int c = 0;
-    while (c < l) {
-        sub[c] = s[p+c-1];
-        c++;
-    }
-    sub[c] = '\0';
-}
-
 int not_blank(char *arr, int size) {
     // Loops chars in string, if all blanks, return 0
-    size_t i = 0;
-    for (; i < size; i++) {
+    for (size_t i = 0; i < size; i++) {
         if (arr[i] != ' ') {
             return 1;
         }
     }
     return 0;
 }
-
-// void write_fmt(FILE *file, char *line) {
-//     char *newsub = malloc(strlen(line) + 2);
-//     strcpy(newsub, line);
-//     strcat(newsub, "\n");
-//     fputs(newsub, file);
-// }
 
 struct groups get_groups(char filename[]) {
     FILE *fp;
