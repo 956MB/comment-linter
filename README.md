@@ -70,3 +70,8 @@ int main(void) {
     }
 }
 ```
+
+# TODO:
+
+* Rewrite in JavaScript/TypeScript for use in VSCode as an extension.
+* Include line selection to use on specific chunk of code rather than entire file.
