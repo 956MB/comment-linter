@@ -2,7 +2,7 @@
 
 Comment "linter" vertically lines up groups of comments inside a file.
 
-_Yes, I'm sure something like this already exists, and is written in a much better way, but oh well. I thought it was a cool idea._
+_Yes, I'm sure something like this already exists, and is written in a much better way, but oh well. I thought it'd be a cool thing to try._
 
 ### How:
 
@@ -69,6 +69,22 @@ int main(void) {
             display = display-1;                   // else decrement display counter
     }
 }
+```
+
+# USAGE:
+
+Normal files (.c, .py, .js, etc.):
+
+```
+$ ./linter.py -i "file.c"                   << Overwrite with linted file
+
+$ ./linter.py -i "file.c" -o "newfile.c"    << New file with '-o/--output'
+```
+
+Plain text files:
+
+```
+$ ./linter.py -i "README" -s "//"           << '-s/--symbol' for the "comments" symbol in the plain text file
 ```
 
 # TODO:
